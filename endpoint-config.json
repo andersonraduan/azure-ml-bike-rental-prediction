@@ -1,0 +1,50 @@
+{
+  "endpoint": {
+    "name": "diomeproject-eugmw",
+    "type": "Managed online endpoint",
+    "region": "germanywestcentral",
+    "workspace": "DioMEProject",
+    "resource_group": "DioME",
+    "auth_mode": "key",
+    "provisioning_state": "Succeeded",
+    "scoring_uri": "https://diomeproject-eugmw.germanywestcentral.inference.ml.azure.com/score",
+    "traffic": {
+      "mslearnbikeauto2-1": 100
+    }
+  },
+  "deployment": {
+    "name": "mslearnbikeauto2-1",
+    "model": "VotingEnsemble (AutoML, job mslearn-bike-automl)",
+    "instance_type": "Standard_D2as_v4",
+    "instance_count": 1,
+    "scoring_script": "auto-generated",
+    "provisioning_state": "Succeeded",
+    "data_collection": "disabled",
+    "package_model": "disabled"
+  },
+  "training_job": {
+    "name": "mslearn-bike-automl",
+    "experiment": "mslearn-bike-rental",
+    "task": "regression",
+    "target_column": "rentals",
+    "primary_metric": "NormalizedRootMeanSquaredError",
+    "allowed_models": ["RandomForest", "LightGBM"],
+    "validation": "train-validation split (10%)",
+    "metrics": {
+      "normalized_root_mean_squared_error": 0.08947237,
+      "r2_score": 0.7879527,
+      "mean_absolute_error": 185.8472,
+      "root_mean_squared_error": 304.9218,
+      "spearman_correlation": 0.9221838
+    }
+  },
+  "sample_request": {
+    "input_data": {
+      "columns": ["day", "mnth", "year", "season", "holiday", "weekday", "workingday", "weathersit", "temp", "atemp", "hum", "windspeed"],
+      "index": [0],
+      "data": [[1, 1, 2022, 2, 0, 1, 1, 2, 0.3, 0.3, 0.3, 0.3]]
+    }
+  },
+  "sample_response": [386.60207883868753],
+  "notes": "O endpoint foi excluido apos o teste para evitar custos. A chave de autenticacao nao e publicada neste arquivo."
+}
